@@ -12,5 +12,7 @@ onlythese$datetime <- as.POSIXct(paste(onlythese$Date, onlythese$Time), format="
 onlythese$Global_active_power <- as.character(onlythese$Global_active_power)
 onlythese$Global_active_power <- as.numeric(onlythese$Global_active_power)  ##Makes readable
 
-onlythese$dayofweek <- as.character(weekdays(onlythese$datetime))
-plot(onlythese$dayofweek, onlythese$Global_active_power) 
+##Make Plot2
+png(file="plot2.png") ##Opens png device before plotting
+plot.ts(onlythese$datetime, onlythese$Global_active_power,type="l", ylab="Global Active Power (kilowatts)",xlab="") 
+dev.off()
